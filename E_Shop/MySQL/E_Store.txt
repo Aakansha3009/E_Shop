@@ -1,0 +1,42 @@
+use e_store;
+
+create table products(
+product_id int NOT NULL AUTO_INCREMENT,
+name varchar(50),
+description varchar(50),
+price varchar(50),                             
+quantity int,
+primary key(product_id)
+);
+
+create table user(
+mobile_number varchar(13) NOT NULL,
+name varchar(50),
+email_id varchar(50),
+city varchar(50), 
+primary key(mobile_number)
+);
+
+create table purchaselist(
+mobile_number varchar(100) NOT NULL,
+LED_TV int DEFAULT NULL,
+Refrigerator int DEFAULT NULL,
+Washing_Machine int DEFAULT NULL,
+Laptop int DEFAULT NULL,
+Oven int DEFAULT NULL,
+AC int DEFAULT NULL,
+Mobile int  DEFAULT NULL, 
+Celling_Fan int DEFAULT NULL,
+Cooler int DEFAULT NULL,
+Camera int DEFAULT NULL,
+foreign key(mobile_number) references user(mobile_number) 
+);
+
+create table add_to_cart(
+mobile_number bigint,
+product_name varchar(20),
+product_quantity int,
+total_amount bigint);
+
+insert into products(name,description,price,quantity) Values('AC','Dust Fliter 3','45,000','1000'),('Camera','1080F Full HD','80,000','1000'),('Cooler','34 liter','55,000','1000'),('Celling Fan','High Speed 3 Blades','7,000','1000'),('Laptop','Core i5 10th generation','68,000','1000'),('LED TV','52 INCH 4K','50,000','1000'),('Mobile','6GB RAM 128 GB Storage','15,000','1000'),('Oven','180w Temperature Control','15,000','1000'),('Refrigerator','Double Door 5','35,000','1000'),('Washing Machine ','Front Door','42,000','1000');
+
